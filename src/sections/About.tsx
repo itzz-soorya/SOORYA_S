@@ -1,0 +1,256 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { FiArrowUpRight, FiAward, FiCloud, FiCode, FiCpu, FiMonitor } from "react-icons/fi";
+import aboutImage from "../assets/hero2.png";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 22 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const highlights = ["AI & Data Science", "Full Stack Development", "Creative Problem Solving"];
+
+const stats = [
+  { value: "2+", label: "Years of Learning", icon: FiCpu },
+  { value: "10+", label: "Projects Built", icon: FiCode },
+  { value: "5+", label: "Technologies", icon: FiAward },
+];
+
+const focusAreas = [
+  {
+    title: "Machine Learning",
+    copy: "Building intelligent models and applying them to real-world problems.",
+    icon: FiCpu,
+  },
+  {
+    title: "Full Stack Development",
+    copy: "Developing responsive and scalable modern web applications.",
+    icon: FiCode,
+  },
+  {
+    title: "Desktop Applications",
+    copy: "Creating efficient desktop solutions using modern technologies.",
+    icon: FiMonitor,
+  },
+  {
+    title: "Cloud & DevOps",
+    copy: "Exploring deployment workflows and scalable cloud solutions.",
+    icon: FiCloud,
+  },
+];
+
+export default function About() {
+  const detailsRef = useRef<HTMLDivElement>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    if (!isExpanded) return;
+
+    detailsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [isExpanded]);
+
+  return (
+    <section
+      id="about"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_75%_18%,rgba(212,162,76,0.1),transparent_30rem),linear-gradient(180deg,#0a0a0a_0%,#101010_44%,#0a0a0a_100%)] px-5 pb-14 pt-20 sm:px-8 sm:pb-16 sm:pt-24 lg:px-10 lg:pb-20 lg:pt-28"
+    >
+      <div className="pointer-events-none absolute inset-0 opacity-[0.024] [background-image:repeating-radial-gradient(circle_at_72%_28%,#ffffff_0_1px,transparent_1px_4px)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-carbon to-transparent" />
+
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ staggerChildren: 0.1 }}
+          className="max-w-2xl"
+        >
+          <motion.div variants={fadeUp} className="mb-5 flex items-center gap-4">
+            <span className="text-sm font-semibold uppercase tracking-[0.28em] text-gold/80 sm:text-base">About me</span>
+            <span className="h-px w-14 bg-gold/55" />
+          </motion.div>
+
+          <motion.p
+            variants={fadeUp}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="mt-7 max-w-[40rem] text-base leading-8 text-pearl/66 sm:text-lg sm:leading-9"
+          >
+            I&apos;m Sabari Sekaran, an Artificial Intelligence and Data Science student focused on building thoughtful
+            digital products using AI, full stack development, and modern engineering tools.
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="mt-5 max-w-[40rem] text-base leading-8 text-pearl/66 sm:text-lg sm:leading-9"
+          >
+            I enjoy developing clean, practical, and user-focused solutions that combine technology, creativity, and
+            problem-solving. With interests spanning artificial intelligence, web development, and modern software
+            engineering, I continuously explore new technologies and build projects that create meaningful real-world
+            impact.
+          </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="mt-9 grid gap-3 sm:grid-cols-3"
+          >
+            {highlights.map((item) => (
+              <div
+                key={item}
+                className="rounded-lg border border-white/[0.075] bg-white/[0.025] px-4 py-4 text-sm font-semibold leading-6 text-pearl/72 transition duration-300 hover:-translate-y-0.5 hover:border-gold/24 hover:bg-gold/[0.035]"
+              >
+                {item}
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.button
+            variants={fadeUp}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            type="button"
+            aria-expanded={isExpanded}
+            aria-controls="about-details"
+            onClick={() => setIsExpanded((current) => !current)}
+            className="mt-9 inline-flex items-center gap-3 rounded-full border border-gold/36 bg-gold/[0.055] px-5 py-3 text-sm font-semibold text-gold transition duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-gold hover:text-ink"
+          >
+            {isExpanded ? "Show Less" : "Know More About Me"}
+            <FiArrowUpRight size={16} />
+          </motion.button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 28 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          className="relative mx-auto hidden h-[30rem] w-full max-w-[34rem] sm:h-[36rem] lg:block lg:h-[42rem] lg:max-w-[40rem]"
+        >
+          <div className="absolute inset-x-[12%] top-[10%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(212,162,76,0.16),transparent_64%)] blur-3xl" />
+          <div className="absolute inset-x-[18%] bottom-[10%] h-28 rounded-full bg-black/60 blur-3xl" />
+          <div className="relative z-10 h-full w-full [mask-image:radial-gradient(ellipse_at_52%_40%,black_42%,rgba(0,0,0,0.86)_58%,rgba(0,0,0,0.42)_75%,transparent_91%)] [mask-mode:alpha]">
+            <img
+              src={aboutImage}
+              alt="Sabari Sekaran"
+              className="h-full w-full object-contain object-bottom drop-shadow-[0_28px_60px_rgba(0,0,0,0.44)] [mask-image:linear-gradient(to_bottom,black_0%,black_70%,rgba(0,0,0,0.78)_80%,rgba(0,0,0,0.28)_90%,transparent_98%)] [mask-mode:alpha]"
+            />
+          </div>
+        </motion.div>
+      </div>
+
+      <AnimatePresence initial={false}>
+        {isExpanded ? (
+          <motion.div
+            ref={detailsRef}
+            id="about-details"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="relative z-10 scroll-mt-10 overflow-hidden"
+          >
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              transition={{ staggerChildren: 0.08, delayChildren: 0.08 }}
+              className="mx-auto mt-16 w-full max-w-7xl border-t border-white/[0.07] pt-10 lg:mt-20"
+            >
+              <motion.div variants={fadeUp} className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.24em] text-gold/72">
+                    Detailed profile
+                  </span>
+                  <h3 className="mt-4 font-heading text-3xl font-semibold leading-tight text-pearl sm:text-4xl">
+                    Building systems that feel useful, polished, and real.
+                  </h3>
+                </div>
+
+                <div className="space-y-5 text-base leading-8 text-pearl/62">
+                  <p>
+                    I study Artificial Intelligence and Data Science at Nandha Engineering College, and I use that
+                    foundation to explore how intelligent features, clean interfaces, and reliable backend systems can
+                    work together in real products.
+                  </p>
+                  <p>
+                    My work usually moves between experimentation and execution: trying ideas, learning from projects,
+                    refining the interface, and turning rough concepts into something that feels clear and usable.
+                  </p>
+                  <p>
+                    I am drawn to engineering that has both structure and taste. The goal is to keep improving as a
+                    developer who can think through problems, communicate clearly, and build technology with practical
+                    value.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="mt-12 grid gap-4 sm:grid-cols-3">
+                {stats.map((stat) => {
+                  const Icon = stat.icon;
+
+                  return (
+                    <article
+                      key={stat.label}
+                      className="rounded-lg border border-white/[0.075] bg-white/[0.025] px-6 py-6 text-center transition duration-300 hover:-translate-y-1 hover:border-gold/24 hover:bg-gold/[0.035]"
+                    >
+                      <Icon className="mx-auto text-gold" size={24} />
+                      <div className="mt-4 font-heading text-3xl font-semibold text-pearl">{stat.value}</div>
+                      <div className="mt-1 text-sm text-pearl/52">{stat.label}</div>
+                    </article>
+                  );
+                })}
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="mt-16">
+                <div className="mb-6 flex items-center gap-4">
+                  <span className="text-xs font-semibold uppercase tracking-[0.28em] text-gold/76">What I do</span>
+                  <span className="h-px w-14 bg-gold/48" />
+                </div>
+                <h3 className="font-heading text-3xl font-semibold leading-tight text-pearl sm:text-4xl">
+                  Turning Ideas Into <span className="text-gold">Impactful Solutions</span>
+                </h3>
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {focusAreas.map((area) => {
+                  const Icon = area.icon;
+
+                  return (
+                    <article
+                      key={area.title}
+                      className="group flex min-h-56 flex-col rounded-lg border border-white/[0.075] bg-white/[0.025] p-5 transition duration-300 hover:-translate-y-1 hover:border-gold/24 hover:bg-white/[0.04]"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="grid size-10 place-items-center rounded-md border border-gold/18 bg-gold/[0.06] text-gold/82 transition duration-300 group-hover:border-gold/34 group-hover:text-gold">
+                          <Icon size={18} />
+                        </div>
+                        {area.title === "Cloud & DevOps" ? (
+                          <span className="text-sm font-semibold text-[#f0ca73]">Exploring</span>
+                        ) : null}
+                      </div>
+                      <h4 className="mt-6 font-heading text-xl font-semibold text-pearl">{area.title}</h4>
+                      <p className="mt-3 text-sm leading-7 text-pearl/54">{area.copy}</p>
+                    </article>
+                  );
+                })}
+              </motion.div>
+
+              <motion.button
+                variants={fadeUp}
+                type="button"
+                onClick={() => setIsExpanded(false)}
+                className="mt-8 inline-flex items-center gap-3 rounded-full border border-gold/30 bg-gold/[0.045] px-5 py-3 text-sm font-semibold text-gold transition duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-gold hover:text-ink"
+              >
+                Show Less
+                <FiArrowUpRight className="rotate-[-45deg]" size={16} />
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </section>
+  );
+}
