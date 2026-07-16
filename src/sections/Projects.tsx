@@ -584,7 +584,7 @@ export default function Projects({ onResumeClick }: ProjectsProps) {
                 ) : null}
               </AnimatePresence>
 
-              {!showAllInternship ? (
+              {/* {!showAllInternship ? (
                 <div className="relative mt-5 flex justify-center overflow-hidden rounded-2xl px-4 pb-1 pt-8">
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-gold/[0.055] to-transparent" />
                   <div className="pointer-events-none absolute left-1/2 top-2 h-10 w-56 -translate-x-1/2 bg-gold/[0.045] blur-2xl" />
@@ -597,7 +597,7 @@ export default function Projects({ onResumeClick }: ProjectsProps) {
                     <FiArrowUpRight className="transition duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={15} />
                   </button>
                 </div>
-              ) : null}
+              ) : null} */}
             </div>
           </div>
               <div className="mt-8 flex justify-center">

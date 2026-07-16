@@ -5,11 +5,11 @@ import { HiOutlineMail } from "react-icons/hi";
 const links = [
   {
     label: "Email",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=sabarisekaran26@gmail.com&su=Portfolio%20Inquiry&body=Hello%20Sabari%2C",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=soorya2705@gmail.com&su=Portfolio%20Inquiry&body=Hello%20Soorya!%2C",
     icon: HiOutlineMail,
   },
-  { label: "GitHub", href: "https://github.com/Sabarisekaran", icon: FaGithub },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/sabari-sekaran-mu-9238032a3/", icon: FaLinkedinIn },
+  { label: "GitHub", href: "https://github.com/itzz-soorya", icon: FaGithub },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/surya-suthakar-0078a0292/", icon: FaLinkedinIn },
 ];
 
 export default function Contact() {

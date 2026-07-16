@@ -4,8 +4,8 @@ import About from "./sections/About";
 import CinematicHeader from "./components/CinematicHeader";
 import ResumeExperience from "./components/ResumeExperience";
 import Stack from "./sections/Stack";
-import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
+// import Projects from "./sections/Projects";
 
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function App() {
       <Hero />
       <About />
       <Stack />
-      <Projects onResumeClick={() => setResumeOpen(true)} />
+      {/* <Projects onResumeClick={() => setResumeOpen(true)} /> */}
       <Contact />
     </main>
   );

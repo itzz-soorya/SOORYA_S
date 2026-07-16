@@ -32,7 +32,7 @@ export default function Navbar() {
 
         <div className="col-start-3 flex items-center justify-end gap-2 sm:gap-3">
           <a
-            href="https://github.com/Sabarisekaran"
+            href="https://github.com/itzz-soorya"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
@@ -41,7 +41,7 @@ export default function Navbar() {
             <FaGithub size={16} />
           </a>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=sabarisekaran26@gmail.com&su=Portfolio%20Inquiry&body=Hello%20Sabari%2C"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=soorya2705@gmail.com&su=Portfolio%20Inquiry&body=Hello%20Soorya!%2C"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Email"

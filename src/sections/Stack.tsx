@@ -28,30 +28,17 @@ type StackItem = {
 
 const stackItems: StackItem[] = [
   {
-    name: "Python",
-    icon: SiPython,
-    color: "text-[#ffd43b]",
-    overview:
-      "Used for machine learning experiments, AI-based projects, automation workflows, and backend logic development.",
-    workedOn: [
-      "AI-based plant disease and image captioning projects",
-      "Data processing and model experimentation",
-      "Automation and scripting workflows",
-    ],
-    focus: "Machine Learning • AI Development • Automation",
-  },
-  {
-    name: "Java",
-    icon: FaJava,
-    color: "text-[#f89820]",
-    overview: "Used for core programming concepts, application logic, and structured development workflows.",
-    workedOn: [
-      "Object-oriented programming implementations",
-      "Academic and practical desktop-based workflows",
-      "Logic-building and problem-solving applications",
-    ],
-    focus: "OOP • Application Logic • Problem Solving",
-  },
+  name: "Java",
+  icon: FaJava,
+  color: "text-[#f89820]",
+  overview: "Experienced in developing object-oriented applications, implementing efficient algorithms, and building scalable software solutions using Java.",
+  workedOn: [
+    "Object-oriented application development",
+    "Data structures and algorithm implementations",
+    "Console-based and backend application development",
+  ],
+  focus: "Java • OOP • DSA • Backend Development",
+},
   {
     name: "JavaScript",
     icon: SiJavascript,
@@ -97,14 +84,6 @@ const stackItems: StackItem[] = [
     focus: "API Development • Backend Routing • Server Architecture",
   },
   {
-    name: "MongoDB",
-    icon: SiMongodb,
-    color: "text-[#47a248]",
-    overview: "Used for storing and managing application data in full stack projects.",
-    workedOn: ["MERN stack database integration", "Project data handling", "NoSQL document workflows"],
-    focus: "NoSQL • Database Design • Backend Integration",
-  },
-  {
     name: "SQL",
     icon: TbDatabase,
     color: "text-[#4ea1ff]",
@@ -114,40 +93,24 @@ const stackItems: StackItem[] = [
       "Real-time database handling during internship projects",
       "Turf Zone management system",
       "Billing and transaction management workflows",
-      "Raliax project database operations",
+      "Railax project database operations",
       "Data organization, querying, and backend integration",
     ],
     focus: "Relational Databases • Query Optimization • Real-Time Data Management",
   },
-  {
-    name: "TensorFlow",
-    icon: SiTensorflow,
-    color: "text-[#ff6f00]",
-    overview: "Used for experimenting with machine learning models and AI-based workflows.",
-    workedOn: ["AI learning projects", "Deep learning experimentation", "Model training workflows"],
-    focus: "Machine Learning • Deep Learning • AI Systems",
-  },
-  {
-    name: "OpenCV",
-    icon: SiOpencv,
-    color: "text-[#5cdd4b]",
-    overview: "Used for computer vision experimentation and image-processing workflows.",
-    workedOn: ["Image-based AI projects", "Visual data processing", "Computer vision experimentation"],
-    focus: "Computer Vision • Image Processing • AI Applications",
-  },
+  
+  
   {
     name: ".NET",
     icon: SiDotnet,
     color: "text-[#8b5cf6]",
     overview: "Used for developing desktop applications using the .NET framework and XAML-based UI architecture.",
     workedOn: [
-      "Real-time desktop application workflows",
-      "XAML interface development and framework integration",
       "Billing system architecture and management modules",
       "Raliax project application structure and backend connectivity",
       "Structured desktop system design with modern engineering practices",
     ],
-    focus: "Desktop Applications • XAML UI Development • System Architecture • .NET Framework",
+    focus: "Desktop Applications • System Architecture • .NET Framework",
   },
 ];
 
@@ -264,7 +227,7 @@ export default function Stack() {
                   </motion.div>
 
                   <a
-                    href="https://github.com/Sabarisekaran"
+                    href="https://github.com/itzz-soorya"
                     target="_blank"
                     rel="noreferrer"
                     className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold/72 transition duration-300 hover:text-pearl"

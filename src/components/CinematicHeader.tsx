@@ -117,7 +117,7 @@ export default function CinematicHeader() {
 
             <div className="flex flex-col items-center gap-2">
               <a
-                href="https://github.com/Sabarisekaran"
+                href="https://github.com/itzz-soorya"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -126,7 +126,7 @@ export default function CinematicHeader() {
                 <FaGithub size={15} />
               </a>
               <a
-                href="https://www.linkedin.com/in/sabari-sekaran-mu-9238032a3/"
+                href="https://www.linkedin.com/in/surya-suthakar-0078a0292/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -170,7 +170,7 @@ export default function CinematicHeader() {
             <div className="mx-1 h-6 w-px bg-gold/18" />
 
             <a
-              href="https://github.com/Sabarisekaran"
+              href="https://github.com/itzz-soorya"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
@@ -179,7 +179,7 @@ export default function CinematicHeader() {
               <FaGithub size={14} />
             </a>
             <a
-              href="https://www.linkedin.com/in/sabari-sekaran-mu-9238032a3/"
+              href="https://www.linkedin.com/in/surya-suthakar-0078a0292/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

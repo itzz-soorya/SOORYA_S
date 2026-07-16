@@ -1,14 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { FiArrowUpRight, FiAward, FiCloud, FiCode, FiCpu, FiMonitor } from "react-icons/fi";
-import aboutImage from "../assets/hero2.png";
+// import aboutImage from "../assets/hero2.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
   visible: { opacity: 1, y: 0 },
 };
 
-const highlights = ["AI & Data Science", "Full Stack Development", "Creative Problem Solving"];
+const highlights = [ "Full Stack Development", "Creative Problem Solving","API Design","Java Development","Git & Version Control","Clean Code Practices"];
 
 const stats = [
   { value: "2+", label: "Years of Learning", icon: FiCpu },
@@ -60,7 +60,7 @@ export default function About() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.024] [background-image:repeating-radial-gradient(circle_at_72%_28%,#ffffff_0_1px,transparent_1px_4px)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-carbon to-transparent" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-8">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 lg:gap-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -78,8 +78,8 @@ export default function About() {
             transition={{ duration: 0.65, ease: "easeOut" }}
             className="mt-7 max-w-[40rem] text-base leading-8 text-pearl/66 sm:text-lg sm:leading-9"
           >
-            I&apos;m Sabari Sekaran, an Artificial Intelligence and Data Science student focused on building thoughtful
-            digital products using AI, full stack development, and modern engineering tools.
+            I'm Soorya S, a passionate software developer who enjoys building modern web applications with a 
+            strong focus on backend development, clean architecture, and scalable systems.
           </motion.p>
 
           <motion.p
@@ -87,11 +87,8 @@ export default function About() {
             transition={{ duration: 0.65, ease: "easeOut" }}
             className="mt-5 max-w-[40rem] text-base leading-8 text-pearl/66 sm:text-lg sm:leading-9"
           >
-            I enjoy developing clean, practical, and user-focused solutions that combine technology, creativity, and
-            problem-solving. With interests spanning artificial intelligence, web development, and modern software
-            engineering, I continuously explore new technologies and build projects that create meaningful real-world
-            impact.
-          </motion.p>
+           I have hands-on experience developing real-world projects using ASP.NET Core, Node.js, PostgreSQL, and REST APIs, along with industry exposure through my internship at Zoho. I enjoy solving complex problems, learning new technologies, and creating software that is efficient, reliable, and impactful.
+           </motion.p>
 
           <motion.div
             variants={fadeUp}
@@ -108,44 +105,14 @@ export default function About() {
             ))}
           </motion.div>
 
-          <motion.button
-            variants={fadeUp}
-            transition={{ duration: 0.65, ease: "easeOut" }}
-            type="button"
-            aria-expanded={isExpanded}
-            aria-controls="about-details"
-            onClick={() => setIsExpanded((current) => !current)}
-            className="mt-9 inline-flex items-center gap-3 rounded-full border border-gold/36 bg-gold/[0.055] px-5 py-3 text-sm font-semibold text-gold transition duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-gold hover:text-ink"
-          >
-            {isExpanded ? "Show Less" : "Know More About Me"}
-            <FiArrowUpRight size={16} />
-          </motion.button>
+          
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 28 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-          className="relative mx-auto hidden h-[30rem] w-full max-w-[34rem] sm:h-[36rem] lg:block lg:h-[42rem] lg:max-w-[40rem]"
-        >
-          <div className="absolute inset-x-[12%] top-[10%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(212,162,76,0.16),transparent_64%)] blur-3xl" />
-          <div className="absolute inset-x-[18%] bottom-[10%] h-28 rounded-full bg-black/60 blur-3xl" />
-          <div className="relative z-10 h-full w-full [mask-image:radial-gradient(ellipse_at_52%_40%,black_42%,rgba(0,0,0,0.86)_58%,rgba(0,0,0,0.42)_75%,transparent_91%)] [mask-mode:alpha]">
-            <img
-              src={aboutImage}
-              alt="Sabari Sekaran"
-              className="h-full w-full object-contain object-bottom drop-shadow-[0_28px_60px_rgba(0,0,0,0.44)] [mask-image:linear-gradient(to_bottom,black_0%,black_70%,rgba(0,0,0,0.78)_80%,rgba(0,0,0,0.28)_90%,transparent_98%)] [mask-mode:alpha]"
-            />
-          </div>
-        </motion.div>
       </div>
 
       <AnimatePresence initial={false}>
         {isExpanded ? (
           <motion.div
-            ref={detailsRef}
-            id="about-details"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -159,6 +126,7 @@ export default function About() {
               transition={{ staggerChildren: 0.08, delayChildren: 0.08 }}
               className="mx-auto mt-16 w-full max-w-7xl border-t border-white/[0.07] pt-10 lg:mt-20"
             >
+              {/* About portrait image is intentionally hidden for later re-enable. */}
               <motion.div variants={fadeUp} className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-[0.24em] text-gold/72">
