@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
 import HeroButtons from "../components/HeroButtons";
-// import heroImage from "../assets/hero1.png";
+import heroImage from "../assets/hero.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -8,6 +9,14 @@ const fadeUp = {
 };
 
 export default function Hero() {
+  const [imageReady, setImageReady] = useState(true);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+  const portraitParallaxY = useTransform(scrollY, [0, 560], [0, -28]);
+  const auraParallaxY = useTransform(scrollY, [0, 560], [0, 18]);
+  const portraitY = shouldReduceMotion ? 0 : portraitParallaxY;
+  const auraY = shouldReduceMotion ? 0 : auraParallaxY;
+
   return (
     <section
       id="hero"
@@ -18,7 +27,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.028] [background-image:repeating-radial-gradient(circle_at_20%_30%,#ffffff_0_1px,transparent_1px_3px)]" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-carbon via-ink/62 to-transparent" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 items-center gap-8 py-4 md:py-0 lg:gap-0 xl:gap-3">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 items-center gap-8 py-4 md:py-0 lg:grid-cols-[1.04fr_0.96fr] lg:gap-0 xl:gap-3">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -53,7 +62,6 @@ export default function Hero() {
             <HeroButtons />
           </motion.div>
 
-          {/*
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.75, ease: "easeOut" }}
@@ -70,43 +78,42 @@ export default function Hero() {
             Scroll
           </motion.div>
 
+        </motion.div>
+
+        <motion.div
+          style={{ y: auraY }}
+          className="relative hidden h-[34rem] min-h-[30rem] w-full lg:block xl:h-[40rem]"
+        >
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <div className="absolute right-[10%] top-[14%] h-[72%] w-[72%] rounded-full bg-[radial-gradient(circle,rgba(212,162,76,0.14),transparent_60%)] blur-3xl" />
+          </div>
+
           <motion.div
-            style={{ y: auraY }}
-            className="relative mx-auto hidden h-[32rem] min-h-[28rem] w-full max-w-[43rem] sm:h-[37rem] md:h-[min(76vh,47rem)] md:max-w-[47rem] lg:mr-0 lg:block xl:max-w-[49rem]"
+            style={{ y: portraitY }}
+            initial={{ opacity: 0, scale: 0.96, y: 24 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: "easeOut", delay: 0.22 }}
+            className="pointer-events-none absolute bottom-0 right-0 z-20 w-[min(38vw,34rem)] overflow-visible bg-transparent xl:w-[min(36vw,38rem)]"
           >
-            <div className="absolute inset-0 z-0 overflow-hidden">
-              <div className="absolute right-[8%] top-[15%] h-[70%] w-[70%] rounded-full bg-[radial-gradient(circle,rgba(212,162,76,0.13),transparent_60%)] blur-3xl" />
-            </div>
+            <div className="absolute inset-x-16 top-14 h-56 rounded-full bg-gold/14 blur-3xl" />
 
-            <motion.div
-              style={{ y: portraitY }}
-              initial={{ opacity: 0, scale: 0.96, y: 24 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.85, ease: "easeOut", delay: 0.22 }}
-              className="pointer-events-none absolute bottom-0 left-1/2 z-20 w-[min(86vw,34rem)] -translate-x-1/2 overflow-visible bg-transparent sm:left-[47%] sm:w-[min(78vw,36rem)] md:left-[32%] md:w-[min(49vw,37rem)] lg:left-[31%] xl:left-[32%] xl:w-[min(46vw,38rem)]"
-            >
-              <div className="absolute inset-x-16 top-14 h-56 rounded-full bg-gold/14 blur-3xl" />
-
-              {imageReady ? (
-                <div className="relative z-10 aspect-[4/5] w-full [mask-image:radial-gradient(ellipse_at_51%_39%,black_36%,rgba(0,0,0,0.92)_52%,rgba(0,0,0,0.5)_68%,transparent_88%)] [mask-mode:alpha]">
-                  <img
-                    src={heroImage}
-                    alt="Sabari Sekaran"
-                    onError={() => setImageReady(false)}
-                    className="h-full w-full object-cover object-center contrast-[1.02] saturate-[0.96] [mask-image:linear-gradient(to_bottom,black_0%,black_62%,rgba(0,0,0,0.86)_71%,rgba(0,0,0,0.42)_82%,transparent_96%)] [mask-mode:alpha]"
-                  />
-                </div>
-              ) : (
-                <div className="relative z-10 flex aspect-[4/5] w-full items-center justify-center rounded-[2rem] bg-[radial-gradient(circle_at_50%_22%,rgba(212,162,76,0.18),transparent_28%),linear-gradient(145deg,#171717,#070707)]">
-                  <span className="max-w-52 text-center text-sm leading-6 text-pearl/46">
-                    Add the portrait at src/assets/hero1.png
-                  </span>
-                </div>
-              )}
-            </motion.div>
+            {imageReady ? (
+              <div className="relative z-10 aspect-[4/5] w-full [mask-image:radial-gradient(ellipse_at_51%_39%,black_36%,rgba(0,0,0,0.92)_52%,rgba(0,0,0,0.5)_68%,transparent_88%)] [mask-mode:alpha]">
+                <img
+                  src={heroImage}
+                  alt="Sabari Sekaran"
+                  onError={() => setImageReady(false)}
+                  className="h-full w-full object-cover object-center mix-blend-screen contrast-[1.08] saturate-[1.05] brightness-[0.98] [filter:drop-shadow(0_30px_60px_rgba(0,0,0,0.35))] [mask-image:linear-gradient(to_bottom,black_0%,black_62%,rgba(0,0,0,0.86)_71%,rgba(0,0,0,0.42)_82%,transparent_96%)] [mask-mode:alpha]"
+                />
+              </div>
+            ) : (
+              <div className="relative z-10 flex aspect-[4/5] w-full items-center justify-center rounded-[2rem] bg-[radial-gradient(circle_at_50%_22%,rgba(212,162,76,0.18),transparent_28%),linear-gradient(145deg,#171717,#070707)]">
+                <span className="max-w-52 text-center text-sm leading-6 text-pearl/46">
+                  Add the portrait at src/assets/hero.png
+                </span>
+              </div>
+            )}
           </motion.div>
-          */}
-
         </motion.div>
       </div>
     </section>
